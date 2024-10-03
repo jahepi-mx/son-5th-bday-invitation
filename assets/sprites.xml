@@ -1,0 +1,12 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="rail.png" x="0" y="445" width="32" height="53"/>
+	<SubTexture name="sky.png" x="0" y="0" width="200" height="200"/>
+	<SubTexture name="thomas_1.png" x="202" y="0" width="166" height="79"/>
+	<SubTexture name="thomas_2.png" x="168" y="364" width="166" height="79"/>
+	<SubTexture name="thomas_3.png" x="168" y="283" width="166" height="79"/>
+	<SubTexture name="thomas_4.png" x="202" y="81" width="166" height="79"/>
+	<SubTexture name="thomas_left_1.png" x="0" y="364" width="166" height="79"/>
+	<SubTexture name="thomas_left_2.png" x="168" y="202" width="166" height="79"/>
+	<SubTexture name="thomas_left_3.png" x="0" y="283" width="166" height="79"/>
+	<SubTexture name="thomas_left_4.png" x="0" y="202" width="166" height="79"/>
+</TextureAtlas>
