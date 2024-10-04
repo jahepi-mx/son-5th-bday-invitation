@@ -9,7 +9,6 @@ class Thing {
         this.wx = wx;
         this.wy = wy;
         this.partWidth = partWidth;
-        this.image = "rail";
     }
 
     render(context) {
@@ -18,10 +17,11 @@ class Thing {
         
         //context.fillStyle = "green";
         //context.fillRect(x, y, this.size.x, this.size.y);
-
-        for (var i = 0; i < this.size.x / this.partWidth; i++) {
-            context.drawImage(this.assets.spritesAtlas, this.atlas.sprites[this.image].x, this.atlas.sprites[this.image].y, this.atlas.sprites[this.image].width, this.atlas.sprites[this.image].height, 
-                x,  y - 10, this.partWidth + 1, this.size.y);
+        var length = parseInt(this.size.x / this.partWidth);
+        for (var i = 0; i < length; i++) {
+            var image = i == 0 ? "left_rail" : (i == length - 1 ? "right_rail" : "rail");
+            context.drawImage(this.assets.spritesAtlas, this.atlas.sprites[image].x, this.atlas.sprites[image].y, this.atlas.sprites[image].width, this.atlas.sprites[image].height, 
+                x,  y - 40, this.partWidth + 1, this.size.y);
             x += this.partWidth;
         }
     }

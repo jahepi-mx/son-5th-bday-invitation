@@ -62,8 +62,8 @@
 <script src="atlas.js"></script>
 <script src="background.js"></script>
 <script>
-var w = 480;
-var h = 400;
+var w = 800;
+var h = 600;
 var hw = w * 0.5;
 var hh = h * 0.5;
 var canvas = null;
@@ -85,7 +85,7 @@ window.onload = function() {
     player = new Player(camera, 0, 100, hw, hh);
     document.onkeydown = onKeyDown;
     document.onkeyup = onKeyUp;
-    things.push(new Thing(camera, 0, -30, hw, hh,  w * 0.25, h * 0.11, w * 0.25));
+    things.push(new Thing(camera, 0, -30, hw, hh,  w * 0.15 * 2, h * 0.15, w * 0.15));
 }
             
 function onLoadAssets() {
@@ -115,7 +115,7 @@ function renderBackground() {
     var x = parseInt(player.position.x / w);
     var y = parseInt(player.position.y / h);
     for (let dir of dirs) {
-        var background = new Background(camera, (x + dir[0]) * w, (y + dir[1]) * h, hw, hh, w, h);
+        var background = new Background(camera, (x + dir[0]) * w, (y + dir[1]) * h, hw, hh, w, h, dir);
         background.render(context);
     }
 }
@@ -130,18 +130,18 @@ function buildRails() {
             maxDist = dist;
             maxThing = thing;
         }
-        if (dist * -1 > hw) {
+        if (dist * -1 > h * 1.6) {
             things.splice(a--, 1);
         }      
     }
-    var num = w * 0.25;
-    if (maxDist < num) {
-        var x = player.position.x - num;
-        var y = maxThing.position.y - num;
-        var height = h * 0.11;
+    var num = w * 0.15;
+    if (maxDist < hw * 0.5) {
+        var x = player.position.x - hw * 0.5;
+        var y = maxThing.position.y - hw * 0.5;
+        var height = h * 0.15;
         var dir = Math.random() < 0.5 ? -1 : 1;
         for (var i = 0; i < 3; i++) {
-            var width = num + parseInt(Math.random() * 3) * num;
+            var width = num * 2 + parseInt(Math.random() * 3) * num;
             var thing = new Thing(camera, x + (i == 0 ? 0 : width * dir * 0.5), y, hw, hh, width, height, num);
             things.push(thing);
             y -= height;

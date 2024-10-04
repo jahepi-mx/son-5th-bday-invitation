@@ -3,17 +3,17 @@ class Player {
     constructor(camera, x, y, wx, wy) {
         this.atlas = Atlas.getInstance();
         this.assets = Assets.getInstance();
-        this.moveAnimation = new Animation(4, 1);
+        this.moveAnimation = new Animation(4, 2);
         this.position = new Vector(x, y);
         this.left = this.right = false;
         this.vel = new Vector(0, 0);
-        this.accel = new Vector(0, -30);
+        this.accel = new Vector(0, -60);
         this.friction = new Vector(0.9, 0.9);
-        this.size = new Vector(124, 60);
+        this.size = new Vector(124*2, 60*2);
         this.camera = camera;
         this.wx = wx;
         this.wy = wy;
-        this.speed = 60;
+        this.speed = 100;
 
         this.prevPos = this.position.clone();
         this.stuckTime = 0;
