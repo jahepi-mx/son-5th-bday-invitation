@@ -9,8 +9,8 @@ class Camera {
     update(targetPos, dt) {
         var diffX = targetPos.x - this.position.x;
         var diffY = targetPos.y - this.position.y;
-        this.position.x += diffX * dt * 0.5;
-        this.position.y += diffY * dt * 0.5;
+        this.position.x += diffX * dt * 0.8;
+        this.position.y += diffY * dt * 0.8;
     }
 
     xOffset() {

@@ -13,8 +13,8 @@ class Background {
     }
 
     render(context) {
-        var x = this.wx + this.position.x + this.camera.xOffset() - this.size.x * 0.5;
-        var y = this.wy - (this.position.y + this.camera.yOffset() + this.size.y * 0.5);
+        var x = this.wx + this.position.x + this.camera.xOffset() / 1.2 - this.size.x * 0.5;
+        var y = this.wy - (this.position.y + this.camera.yOffset() / 1.2 + this.size.y * 0.5);
         context.drawImage(this.assets.spritesAtlas, this.atlas.sprites[this.image].x, this.atlas.sprites[this.image].y, this.atlas.sprites[this.image].width, this.atlas.sprites[this.image].height, 
             x,  y, this.size.x, this.size.y);
 

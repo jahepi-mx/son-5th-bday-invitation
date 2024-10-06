@@ -26,7 +26,7 @@
     #title { 
         margin: 0.1em;
         text-align: center;
-        color: red; 
+        color: blue; 
         font-size: 3em; 
         font-family: DirtyBrush;
     }
@@ -72,7 +72,7 @@ var lastTime = 0;
 var camera = null;
 var player = null;
 var things = [];
-var dirs = [[0,0], [0,1], [-1,0], [0,-1], [1,0], [1,1], [1,-1], [-1,-1], [-1,1]];
+var dirs = [[-2,0], [-1,0], [0,0], [1,0], [2,0], [3,0], [-2,-1], [-1,-1], [0,-1], [1,-1], [2,-1], [3,-1], [-2,-2], [-1,-2], [0,-2], [1,-2], [2,-2], [3,-2], [-2,-3], [-1,-3], [0,-3], [1,-3], [2,-3], [3,-3]];
 
 window.onload = function() {
     canvas = document.getElementById("canvas");
@@ -114,6 +114,9 @@ function onKeyUp(key) {
 function renderBackground() {
     var x = parseInt(player.position.x / w);
     var y = parseInt(player.position.y / h);
+    
+    x = parseInt((x * w + camera.xOffset() - camera.xOffset() / 1.2) / w);
+    y = parseInt((y * h + camera.yOffset() - camera.yOffset() / 1.2) / h);
     for (let dir of dirs) {
         var background = new Background(camera, (x + dir[0]) * w, (y + dir[1]) * h, hw, hh, w, h, dir);
         background.render(context);
@@ -162,7 +165,6 @@ function render(time) {
         requestAnimationFrame(render);
         return;
     }
-
     renderBackground();
     buildRails();
     this.camera.update(player.position, dt);
@@ -171,6 +173,7 @@ function render(time) {
         thing.render(context);
     }
     this.player.render(context);
+    
     requestAnimationFrame(render)
 }
 
