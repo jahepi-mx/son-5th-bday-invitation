@@ -197,7 +197,12 @@ function sendData() {
             document.getElementById("status").innerHTML = "Hubo un error, escribe tu nombre.";
         }
     }
-    xhr.send("name=" + document.getElementById("name").value);
+    var name = document.getElementById("name").value;
+    if (name == "") {
+        window.alert("Error!, escribe tu nombre para confirmar.");
+    } else {
+        xhr.send("name=" + name);
+    }
 }
 </script>
 
