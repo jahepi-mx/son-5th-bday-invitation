@@ -190,11 +190,11 @@ function sendData() {
         var res = xhr.responseText;
         if (res == "ok") {
             document.getElementById("status").className = "text-green";
-            document.getElementById("status").innerHTML = "Gracias por confirmar la asistencia!!!";
+            document.getElementById("status").innerHTML = "Gracias por confirmar la asistencia!";
             document.getElementById("name").value = "";
         } else {
             document.getElementById("status").className = "text-red";
-            document.getElementById("status").innerHTML = "Hubo un error, escribe tu nombre.";
+            document.getElementById("status").innerHTML = "Hubo un error, inténtalo de nuevo.";
         }
     }
     var name = document.getElementById("name").value;
