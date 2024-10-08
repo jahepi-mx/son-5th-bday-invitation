@@ -1,3 +1,5 @@
+let backDirs = [[-2,0], [-1,0], [0,0], [1,0], [2,0], [3,0], [-2,-1], [-1,-1], [0,-1], [1,-1], [2,-1], [3,-1], [-2,-2], [-1,-2], [0,-2], [1,-2], [2,-2], [3,-2], [-2,-3], [-1,-3], [0,-3], [1,-3], [2,-3], [3,-3]];
+
 class Background {
     
     constructor(camera, x, y, wx, wy, sw, sh, dir) {
@@ -10,6 +12,18 @@ class Background {
         this.wy = wy;
         this.image = "sky";
         this.dir = dir;
+    }
+
+    static renderBackgrounds(context, player, camera, wx, wy, sw, sh) {
+        var x = parseInt(player.position.x / sw);
+        var y = parseInt(player.position.y / sh);
+        
+        x = parseInt((x * sw + camera.xOffset() - camera.xOffset() / 1.2) / sw);
+        y = parseInt((y * sh + camera.yOffset() - camera.yOffset() / 1.2) / sh);
+        for (let dir of backDirs) {
+            var background = new Background(camera, (x + dir[0]) * sw, (y + dir[1]) * sh, wx, wy, sw, sh, dir);
+            background.render(context);
+        }
     }
 
     render(context) {

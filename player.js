@@ -26,10 +26,10 @@ class Player {
 
     update(dt, things) {
         if (this.left) {
-            this.vel.x = -this.speed;
+            //this.vel.x = -this.speed;
         }
         if (this.right) {
-            this.vel.x = this.speed;
+            //this.vel.x = this.speed;
         }
 
         this.vel.x = this.speed * this.dir;
