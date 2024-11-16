@@ -189,7 +189,7 @@ function sendData() {
     }
     var name = document.getElementById("name").value;
     if (name == "") {
-        window.alert("Error!, escribe tu nombre para confirmar.");
+        window.alert("Error!, escribe nombre y número de asistentes para confirmar.");
     } else {
         xhr.send("name=" + name);
     }
@@ -222,7 +222,7 @@ function sendData() {
                 <br /><span style="color:greenyellow">¡No falten!</span>
             </div><br />
             <div class="input-group mb-3">
-                <input id="name" name="name" type="text" class="form-control" placeholder="Escribe tu nombre" aria-label="Nombre" aria-describedby="basic-addon2">
+                <input id="name" name="name" type="text" class="form-control" placeholder="Nombre y número de asistentes" aria-label="Nombre" aria-describedby="basic-addon2">
                 <div class="input-group-append">
 
                     <button class="btn btn-success" type="button" onclick="sendData()">
