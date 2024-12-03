@@ -8,7 +8,8 @@ This is an interactive invitation I made for my son’s fifth birthday.
 
 ## Sprites
 
- I used the sprites from this site: https://www.spriters-resource.com/snes/thomasthetankengineandfriends/sheet/191859/
+ I used the sprites from this site:
+ https://www.spriters-resource.com/snes/thomasthetankengineandfriends/sheet/191859/
 
  ## Invitation
 
